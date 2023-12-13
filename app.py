@@ -9,9 +9,23 @@ def nothing(x):
     pass
 
 
+def find_available_cameras():
+    num_cameras = 10  # Try up to 10 camera indices
+    available_cameras = []
+
+    for i in range(num_cameras):
+        cap = cv2.VideoCapture(i)
+        if cap.isOpened():
+            available_cameras.append(i)
+            cap.release()
+
+    return available_cameras
+    
+cameras = find_available_cameras()
+
 def find_colour_range():
     
-    cap = cv2.VideoCapture(xcb)
+    cap = cv2.VideoCapture(cameras)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -96,7 +110,7 @@ def noise_reduction():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(xcb)
+    cap = cv2.VideoCapture(cameras)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -155,7 +169,7 @@ def track_target_pen():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(xcb)
+    cap = cv2.VideoCapture(cameras)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -227,7 +241,7 @@ def draw_with_pen():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(xcb)
+    cap = cv2.VideoCapture(cameras)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -319,7 +333,7 @@ def virtual_pen():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(xcb)
+    cap = cv2.VideoCapture(cameras)
     cap.set(3,1280)
     cap.set(4,720)
 
