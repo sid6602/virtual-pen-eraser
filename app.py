@@ -11,7 +11,7 @@ def nothing(x):
 
 def find_colour_range():
     
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(xcb)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -96,7 +96,7 @@ def noise_reduction():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(xcb)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -155,7 +155,7 @@ def track_target_pen():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(xcb)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -227,7 +227,7 @@ def draw_with_pen():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(xcb)
     cap.set(3,1280)
     cap.set(4,720)
 
@@ -319,7 +319,7 @@ def virtual_pen():
     if load_from_disk:
         penval = np.load('penval.npy')
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(xcb)
     cap.set(3,1280)
     cap.set(4,720)
 
