@@ -19,7 +19,7 @@ def find_available_cameras():
             available_cameras.append(i)
             cap.release()
 
-    return available_cameras
+    return int(available_cameras)
     
 cameras = find_available_cameras()
 
